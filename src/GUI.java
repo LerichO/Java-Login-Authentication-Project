@@ -1,13 +1,24 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Hashtable;
 
 public class GUI implements ActionListener {
 
+    private String usernameString;
+    private String passwordString;
+
+    private static JLabel userLabel;
+    private static JTextField userText;
+    private static JLabel passwordLabel;
+    private static JPasswordField passwordText;
+    private static JButton button;
+    private static JLabel success;
+
     public GUI(){
 
-        //boilterplate login gui from Alex Lee viode: https://www.youtube.com/watch?v=iE8tZ0hn2Ws&t=1043s&ab_channel=AlexLee
-        //video is based on https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbTNQbFB1R0ZodGRfRXhtZDZGRVZxa21FVms4Z3xBQ3Jtc0tsSHZFYlFHSlJiQ1gybkRCVlFGVDVhaVhvc1M1Rkd5ZWpBQV81WkZwOUNBOG9VX0tGTzc0TkZFc2plZkFubWQ3UkZVc0l1UGhOM3FTcF85YUtrNVBMRnpPS0Y5Szg5bzRDOEtkNVZFMXZ5bmdsZ2dwbw&q=https%3A%2F%2Fintrocs.cs.princeton.edu%2Fjava%2F15inout%2FGUI.java.html&v=5o3fMLPY7qY
+        //boilterplate login gui from Alex Lee video: https://www.youtube.com/watch?v=iE8tZ0hn2Ws&t=1043s&ab_channel=AlexLee
+        //video is based on https://introcs.cs.princeton.edu/java/15inout/GUI.java.html
 
         JPanel panel = new JPanel();
         JFrame frame = new JFrame();
@@ -18,28 +29,28 @@ public class GUI implements ActionListener {
 
         panel.setLayout(null);
 
-        JLabel userLabel = new JLabel("Username");
+        userLabel = new JLabel("Username");
         userLabel.setBounds(10, 20, 80, 25);
         panel.add(userLabel);
 
-        JTextField userText = new JTextField(20);
+        userText = new JTextField(20);
         userText.setBounds(100, 20, 165, 25);
         panel.add(userText);
 
-        JLabel passwordLabel = new JLabel("Password");
+        passwordLabel = new JLabel("Password");
         passwordLabel.setBounds(10, 50, 80, 25);
         panel.add(passwordLabel);
 
-        JPasswordField passwordText = new JPasswordField(20);
+        passwordText = new JPasswordField(20);
         passwordText.setBounds(100, 50, 165, 25);
         panel.add(passwordText);
 
-        JButton button = new JButton("Login");
+        button = new JButton("Login");
         button.setBounds(10, 80, 80, 25);
-        button.addActionListener(new GUI());
+        button.addActionListener(this);
         panel.add(button);
 
-        JLabel success = new JLabel("");
+        success = new JLabel("");
         success.setBounds(10, 110, 300, 25);
         panel.add(success);
 
@@ -47,12 +58,18 @@ public class GUI implements ActionListener {
 
     }
 
+    @Override
     public void actionPerformed(ActionEvent e){
 
+        usernameString = userText.getText();
+        passwordString = passwordText.getText();
+        System.out.println("Username: " + usernameString);
+        System.out.println("Password: " + passwordString);
         //implement reading credentials from database / file
 
     }
 
+    // once upgraded to a Spring + MongoDB app, will move this to a Spring application java class
     public static void main(String args[]){
         new GUI();
     }
