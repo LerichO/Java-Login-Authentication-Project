@@ -1,6 +1,6 @@
 # Java-Login-Authentication-Project
 
-This is a Java Swing GUI project I will be adding to overtime to demonstrate GUI usage and credential authentication.
+This is a simple Java Swing GUI project I will be adding to overtime to demonstrate GUI usage and credential authentication.
 
 Boilerplate Swing GUI code originally from [Alex Lee's video](https://www.youtube.com/watch?v=iE8tZ0hn2Ws&t=85s&ab_channel=AlexLee) going over [Princeton's Swing GUI example](https://introcs.cs.princeton.edu/java/15inout/GUI.java.html)
  
